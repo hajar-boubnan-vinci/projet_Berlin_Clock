@@ -1,5 +1,6 @@
 import { Main } from "../src/app.js";
 
+//etape 1
 describe("BerlinClock-Simple Minutes Row", function () {
     const main = new Main();
 
@@ -29,6 +30,7 @@ describe("BerlinClock-Simple Minutes Row", function () {
     });
 });
 
+//etape 2
 describe("BerlinClock-Five Minutes Row", function () {
     const main = new Main();
 
@@ -58,6 +60,7 @@ describe("BerlinClock-Five Minutes Row", function () {
     });
 });
 
+//etape 3
 describe("BerlinClock - Single Hours Row", function () {
     const main = new Main();
 
@@ -87,6 +90,7 @@ describe("BerlinClock - Single Hours Row", function () {
     });
 });
 
+//etape 4
 describe("BerlinClock - Five Hours Row", function () {
     const main = new Main();
 
@@ -115,36 +119,56 @@ describe("BerlinClock - Five Hours Row", function () {
         expect(result).toBe("RRRR");
     })
 
-})
+});
 
-describe("BerlinClock - Seconds Lamp",function(){
+//etape 5
+describe("BerlinClock - Seconds Lamp", function () {
 
     const main = new Main;
 
-    it("should return Y for even seconds", function(){
-        const result= main.getSecondsLamp(0);
+    it("should return Y for even seconds", function () {
+        const result = main.getSecondsLamp(0);
         expect(result).toBe("Y");
-    
     });
 
-    it("should return O for odd seconds", function(){
-        const result= main.getSecondsLamp(1);
+    it("should return O for odd seconds", function () {
+        const result = main.getSecondsLamp(1);
         expect(result).toBe("O");
-    
     });
 
-    it("should return Y for 2 seconds", function(){
-        const result= main.getSecondsLamp(2);
+    it("should return Y for 2 seconds", function () {
+        const result = main.getSecondsLamp(2);
         expect(result).toBe("Y");
-    
     });
 
-    it("should return 0 for 3 seconds", function(){
-        const result= main.getSecondsLamp(3);
+    it("should return 0 for 3 seconds", function () {
+        const result = main.getSecondsLamp(3);
         expect(result).toBe("O");
-    
     });
 
+});
 
+//etape 6
+describe("BerlinClock - Full Clock", function () {
+    const main = new Main();
 
-})
+    it("should return the correct Berlin Clock representation for 00:00:00", function () {
+        const result = main.getBerlinClock(0, 0, 0);
+        expect(result).toBe("Y\nOOOO\nOOOO\nOOOOOOOOOOO\nOOOO")
+    })
+
+    it("should return the correct Berlin Clock representation for 13:17:01", function () {
+        const result = main.getBerlinClock(13, 17, 1);
+        expect(result).toBe("O\nRROO\nRRRO\nYYROOOOOOOO\nYYOO")
+    })
+
+    it("should return the correct Berlin Clock representation for 23:59:59", function () {
+        const result = main.getBerlinClock(23, 59, 59);
+        expect(result).toBe("O\nRRRR\nRRRO\nYYRYYRYYRYY\nYYYY")
+    })
+
+    it("should return the correct Berlin Clock representation for 24:00:00", function () {
+        const result = main.getBerlinClock(24, 0, 0);
+        expect(result).toBe("Y\nRRRR\nRRRR\nOOOOOOOOOOO\nOOOO")
+    })
+});
