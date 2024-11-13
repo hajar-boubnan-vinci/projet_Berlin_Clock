@@ -25,4 +25,12 @@ export class Main {
         return lamps.join('');
     }
 
+    getFiveHoursRow(hours){
+        const lamps = ['O','O','O','O']
+        for(let i = 0; i < Math.floor(hours / 5); i++){
+            lamps[i] = 'R';
+        }
+        return lamps.join('');
+    }
+
 }
