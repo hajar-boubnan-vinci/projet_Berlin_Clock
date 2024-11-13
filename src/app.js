@@ -17,4 +17,12 @@ export class Main {
         return lamps.join('');
     }
 
+    getSingleHoursRow(hours){
+        const lamps = ['O','O','O','O']
+        for(let i = 0; i< hours %5; i++){
+            lamps[i]='R';
+        }
+        return lamps.join('');
+    }
+
 }
