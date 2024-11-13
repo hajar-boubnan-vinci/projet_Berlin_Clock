@@ -116,3 +116,35 @@ describe("BerlinClock - Five Hours Row", function () {
     })
 
 })
+
+describe("BerlinClock - Seconds Lamp",function(){
+
+    const main = new Main;
+
+    it("should return Y for even seconds", function(){
+        const result= main.getSecondsLamp(0);
+        expect(result).toBe("Y");
+    
+    });
+
+    it("should return O for odd seconds", function(){
+        const result= main.getSecondsLamp(1);
+        expect(result).toBe("O");
+    
+    });
+
+    it("should return Y for 2 seconds", function(){
+        const result= main.getSecondsLamp(2);
+        expect(result).toBe("Y");
+    
+    });
+
+    it("should return 0 for 3 seconds", function(){
+        const result= main.getSecondsLamp(3);
+        expect(result).toBe("O");
+    
+    });
+
+
+
+})
